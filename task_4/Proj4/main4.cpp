@@ -13,8 +13,7 @@ int main(int argc, char** argv) {
 	std::sregex_iterator endTime;
 
 	std::cout << "Time: ";
-	std::for_each(begin, endTime, [](const std::smatch& m)
-		{
+	std::for_each(begin, endTime, [](const std::smatch& m) {
 			std::cout << m[0] << std::endl;
 		});
 
@@ -25,11 +24,9 @@ int main(int argc, char** argv) {
 	std::sregex_iterator endDate;
 
 	std::cout << "Date: " ;
-	std::for_each(beginData, endDate, [](const std::smatch& m)
-		{
+	std::for_each(beginData, endDate, [](const std::smatch& m) {
 			std::cout << m[0] << std::endl;
 		});
-
 
 
 	system("pause");
