@@ -16,17 +16,27 @@ void show_currency_symbol(const std::string& locale_name) {
 
 int main(int argc, char* argv) {
 
-	SetConsoleCP(CP_UTF8);
-	SetConsoleOutputCP(CP_UTF8);
 
-	int mon = 1227;
+	//SetConsoleCP(CP_UTF8);
+	//SetConsoleOutputCP(CP_UTF8);
+	
+	const int k = 83;
+
+	//int mon;
+	std::cout << "enter money: ";
+	std::cin.imbue(std::locale("en_US.UTF-8"));
+	std::string mon;
+	std::cin >> mon;
 
 
-	std::ostringstream sout;
-	sout.imbue(std::locale("ru_RU.utf8"));
-	sout << std::showbase << std::put_money(mon, false) << std::endl;
-	std::cout << sout.str() << std::endl;
+	long int val;
+	std::istringstream sout(mon);
+	sout.imbue(std::locale("de_DE.UTF-8"));
+	sout >> std::get_money(val);
+	std::cout <<val/100 << std::endl;
 
+	val *= k;
+	std::cout << val / 100 << std::endl;
 
 	std::ostringstream ssout;
 	ssout.imbue(std::locale("de_DE.utf8"));
